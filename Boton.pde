@@ -17,12 +17,6 @@ class Boton {
     pantallaDestino = d;
   }
   
-  void forma(){
-    fill(c, 100);
-    rect(xPos, yPos, widthB, heightB, 5);
-    fill(255);
-  }
-  
   void pulsar(){
     if ((xPos <= mouseX && mouseX <= xPos + widthB) && (yPos <= mouseY && mouseY <= yPos + heightB) && pantalla == pantallaActual){
       pantalla = pantallaDestino;
