@@ -1,9 +1,10 @@
 PImage menu, carrera, instrucciones;
 Boton b1, b2, b3, b4, ins;
-int pantalla;
+int pantalla = 0;
 
 void setup(){
   size(1374, 765);
+  surface.setResizable(true);
   menu = loadImage("menu.png");
   carrera = loadImage("circuito.png");
   instrucciones = loadImage("instrucciones.png");
@@ -15,9 +16,11 @@ void setup(){
 }
 
 void draw(){
-  image(menu, 0, 0);
   println(mouseX + ":" + mouseY);
   switch(pantalla){
+    case 0:
+      Menu();
+      break;
     case 1:
       Carrera();
       break;
@@ -27,7 +30,7 @@ void draw(){
       break;
       
     case 3: 
-      Salir();
+      exit();
       break;
   }
 }
