@@ -3,6 +3,7 @@ Boton b1, b2, b3, b4, ins;
 int pantalla = 1;
 float posAzulX = 320, posAzulY = 835;
 float posRojoX = 320, posRojoY = 738;
+Temps cronometre;
 
 void setup(){
   size(1374, 765);
@@ -30,6 +31,7 @@ void setup(){
   b2 = new Boton(455, 350, color(255, 0, 255), 455, 80, 0, 2);
   b3 = new Boton(455, 500, color(255, 0, 255), 455, 80, 0, 3);
   ins = new Boton(515, 565, color(255, 0, 255), 148, 60, 2, 0);
+  cronometre = new Temps();
   
 }
 
@@ -58,4 +60,5 @@ void mousePressed(){
   b2.pulsar();
   b3.pulsar();
   ins.pulsar();
+  cronometre.reiniciaEnrera(60);
 }

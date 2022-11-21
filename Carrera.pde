@@ -64,4 +64,12 @@ void Carrera(){
       image(rojo, posRojoX, posRojoY, 130, 70);
       posRojoX++;
   }
+  
+    cronometre.dibuixaComptaEnrere();
+ 
+  if (cronometre.fiEnrera()){
+    text("Ok", 50, 100);
+  }
+  println("Hora:"+hour()+":"+minute()+":"+second()+ " Millis:" + millis() + "principi:"+cronometre.principi);
+
 }
