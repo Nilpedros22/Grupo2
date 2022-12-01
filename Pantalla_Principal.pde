@@ -10,6 +10,7 @@ int pregunta = 0;
 String solucion;
 boolean controladorRespuestas = true;
 boolean controladorPreguntas = true;
+Temps cronometre;
 
 void setup(){
   size(1374, 765);
@@ -42,6 +43,12 @@ void setup(){
   r3 = new Boton(563, 480, color(100, 149, 237), 125, 45, 1, 1, "");
   solucion = "";
   posiciones = new int[3];
+  b1 = new Boton(455, 200, color(255, 0, 255), 455, 80, 0, 1);
+  b2 = new Boton(455, 350, color(255, 0, 255), 455, 80, 0, 2);
+  b3 = new Boton(455, 500, color(255, 0, 255), 455, 80, 0, 3);
+  ins = new Boton(515, 565, color(255, 0, 255), 148, 60, 2, 0);
+  cronometre = new Temps();
+  
 }
 
 void draw(){
@@ -72,4 +79,5 @@ void mousePressed(){
   r1.pulsar();
   r2.pulsar();
   r3.pulsar();
+  cronometre.reiniciaEnrera(60);
 }

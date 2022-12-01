@@ -88,7 +88,7 @@ void Carrera(){
       image(rojo, posRojoX, posRojoY, 130, 70);
       posRojoX++;
   }
-  
+
   //Preguntas
   if(controladorPreguntas == true){
     pregunta = generarAleatorio(preguntas.length);
@@ -141,4 +141,9 @@ void Carrera(){
     r2.pulsar = false;
   }
   println(solucion);
+  cronometre.dibuixaComptaEnrere();
+  if (cronometre.fiEnrera()){
+    text("Ok", 50, 100);
+  }
+  println("Hora:"+hour()+":"+minute()+":"+second()+ " Millis:" + millis() + "principi:"+cronometre.principi);
 }
