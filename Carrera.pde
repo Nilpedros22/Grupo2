@@ -30,32 +30,32 @@ void Carrera() {
   //Movimiento coche Azul
   if (posAzulX >= 710 && posAzulY >= 716) {
     image(Amov1, posAzulX, posAzulY, 130, 70);
-    posAzulY-=0.5;
-    posAzulX+=0.5;
+    posAzulY-=vel;
+    posAzulX+=vel;
   } else if (posAzulX >= 800 && posAzulY <= 716 && posAzulY >= 120) {
     image(AverticalA, posAzulX, posAzulY, 70, 130);
-    posAzulY--;
+    posAzulY-=vel;
   } else if (posAzulX >= 760 && posAzulY <= 120) {
     image(Amov2, posAzulX, posAzulY, 70, 130);
-    posAzulY-=0.5;
-    posAzulX-=0.5;
+    posAzulY-=vel;
+    posAzulX-=vel;
   } else if (posAzulX <= 760 && posAzulY <= 120 && posAzulX >= 110) {
     image(azul2, posAzulX, posAzulY, 130, 70);
-    posAzulX--;
+    posAzulX-=vel;
   } else if (posAzulX <= 110 && posAzulY >= 20 && posAzulX >= 45 && posAzulY <= 200) {
     image(Amov3, posAzulX, posAzulY, 130, 70);
-    posAzulY+=0.5;
-    posAzulX-=0.5;
+    posAzulY+=vel;
+    posAzulX-=vel;
   } else if (posAzulX <= 45 && posAzulY >= 20 && posAzulY <= 716) {
     image(AverticalB, posAzulX, posAzulY, 70, 130);
-    posAzulY++;
+    posAzulY+=vel;
   } else if (posAzulX >= 20 && posAzulX <= 160 && posAzulY >= 716) {
     image(Amov4, posAzulX, posAzulY, 70, 130);
-    posAzulY+=0.5;
-    posAzulX+=0.5;
+    posAzulY+=vel;
+    posAzulX+=vel;
   } else {
     image(azul, posAzulX, posAzulY, 130, 70);
-    posAzulX++;
+    posAzulX+=vel;
   }
 
   //Movimiento coche Rojo
@@ -112,8 +112,10 @@ void Carrera() {
   if (r1.pulsar == true) {
     if (r1.texto.equals(respuestas[pregunta][0])) {
       solucion = "Correcto";
+      vel = vel + 0.25;
     } else {
       solucion = "Incorrecto";
+      vel = vel - 0.25;
     }
     controladorPreguntas = true;
     controladorRespuestas = true;
@@ -125,8 +127,10 @@ void Carrera() {
   if (r2.pulsar == true) {
     if (r2.texto.equals(respuestas[pregunta][0])) {
       solucion = "Correcto";
+      vel = vel + 0.25;
     } else {
       solucion = "Incorrecto";
+      vel = vel - 0.25;
     }
     controladorPreguntas = true;
     controladorRespuestas = true;
@@ -138,8 +142,10 @@ void Carrera() {
   if (r3.pulsar == true) {
     if (r3.texto.equals(respuestas[pregunta][0])) {
       solucion = "Correcto";
+      vel = vel + 0.25;
     } else {
       solucion = "Incorrecto";
+      vel = vel - 0.25;
     }
     controladorPreguntas = true;
     controladorRespuestas = true;
@@ -147,7 +153,6 @@ void Carrera() {
     r2.pulsar = false;
     r3.pulsar = false;
   }
-
   println(solucion);
 
   cronometre.dibuixaComptaEnrere();

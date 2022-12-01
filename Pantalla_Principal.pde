@@ -1,6 +1,7 @@
 PImage menu, carrera, instrucciones, azul, rojo, azul2, Amov1, Amov2, Amov3, Amov4, AverticalB, AverticalA, RverticalA, RverticalB, rojo2, Rmov1, Rmov2, Rmov3, Rmov4;
 Boton b1, b2, b3, b4, ins, p1, r1, r2, r3;
 int pantalla = 1;
+float vel = 1;
 float posAzulX = 320, posAzulY = 835;
 float posRojoX = 320, posRojoY = 738;
 String[][] respuestas = {{"1200cm", "120cm", "12000cm"}, {"60dm", "60000dm", "0.6dm"}, {"600cm", "6000cm", "60cm"}, {"30000dm", "30dm", "3000000dm"}, {"800m", "8000m", "80m"}, {"3200000", "320000", "32000"}};
