@@ -1,8 +1,15 @@
 PImage menu, carrera, instrucciones, azul, rojo, azul2, Amov1, Amov2, Amov3, Amov4, AverticalB, AverticalA, RverticalA, RverticalB, rojo2, Rmov1, Rmov2, Rmov3, Rmov4;
-Boton b1, b2, b3, b4, ins;
-int pantalla = 1;
+Boton b1, b2, b3, b4, ins, p1, r1, r2, r3;
+int pantalla = 0;
 float posAzulX = 320, posAzulY = 835;
 float posRojoX = 320, posRojoY = 738;
+String[][] respuestas = {{"1200cm", "120cm", "12000cm"}, {"60dm", "60000dm", "0.6dm"}, {"600cm", "6000cm", "60cm"}, {"30000dm", "30dm", "3000000dm"}, {"800m", "8000m", "80m"}, {"3800000", "380000", "38000"}};
+String[] preguntas = {"Convierte 12 metros a centimetros", "Convierte 6 metros a decimetros", "Convierte 6000 milimetros a centimetros", "Convierte 3 kilometros a decimetros", "Convierte 0.8 kilometros a metros", "Convierte 32 kilometros a centimetros"};
+int[] posiciones;
+int pregunta = 0;
+String solucion;
+boolean controladorRespuestas = true;
+boolean controladorPreguntas = true;
 
 void setup(){
   size(1374, 765);
@@ -26,15 +33,19 @@ void setup(){
   RverticalB = loadImage("RverticalB.png");
   RverticalA = loadImage("RverticalA.png");
   rojo2 = loadImage("rojo2.png");
-  b1 = new Boton(455, 200, color(255, 0, 255), 455, 80, 0, 1);
-  b2 = new Boton(455, 350, color(255, 0, 255), 455, 80, 0, 2);
-  b3 = new Boton(455, 500, color(255, 0, 255), 455, 80, 0, 3);
-  ins = new Boton(515, 565, color(255, 0, 255), 148, 60, 2, 0);
-  
+  b1 = new Boton(455, 200, color(255, 0, 255), 455, 80, 0, 1, "");
+  b2 = new Boton(455, 350, color(255, 0, 255), 455, 80, 0, 2, "");
+  b3 = new Boton(455, 500, color(255, 0, 255), 455, 80, 0, 3, "");
+  ins = new Boton(515, 565, color(255, 0, 255), 148, 60, 2, 0, "");
+  r1 = new Boton(253, 480, color(100, 149, 237), 125, 45, 1, 1, "");
+  r2 = new Boton(408, 480, color(100, 149, 237), 125, 45, 1, 1, "");
+  r3 = new Boton(563, 480, color(100, 149, 237), 125, 45, 1, 1, "");
+  solucion = "";
+  posiciones = new int[3];
 }
 
 void draw(){
-  println(mouseX + ":" + mouseY);
+  //println(mouseX + ":" + mouseY);
   switch(pantalla){
     case 0:
       Menu();
@@ -58,4 +69,7 @@ void mousePressed(){
   b2.pulsar();
   b3.pulsar();
   ins.pulsar();
+  r1.pulsar();
+  r2.pulsar();
+  r3.pulsar();
 }

@@ -1,3 +1,27 @@
+int[] numerosAleatoriosSinRepetir(){
+  int n = 3;
+  int k = n;
+  int[] numeros = new int[n];
+  int[] resultado = new int[n];
+  int res;
+  
+  for(int i = 0; i < n; i++){
+    numeros[i] = i + 1;
+  }
+  
+  for(int i = 0; i < n; i++){
+    res = (int)random(0, k);
+    resultado[i]=numeros[res];
+    numeros[res]=numeros[k-1];
+    k--;
+  }
+  return resultado;
+}
+
+int generarAleatorio(int k){
+  return (int)random(0, k);
+}
+
 void Carrera(){
   surface.setSize(946, 946);
   image(carrera, 0, 0);
@@ -64,4 +88,57 @@ void Carrera(){
       image(rojo, posRojoX, posRojoY, 130, 70);
       posRojoX++;
   }
+  
+  //Preguntas
+  if(controladorPreguntas == true){
+    pregunta = generarAleatorio(preguntas.length);
+    controladorPreguntas = false;
+  }
+  textSize(23);
+  text(preguntas[pregunta], 285, 420);
+  
+  //me aseguro que este codigo solo se ejecute una vez, sino, genera numeros aleatorios continuamente
+  if(controladorRespuestas == true){
+    //esta funcion sirve para que me genere tres numeros aleatorios donde colocar las posibles respuestas.
+    posiciones = numerosAleatoriosSinRepetir();
+    controladorRespuestas = false;
+  }
+  //coloco el texto de la pregunta 1 con la posicion aleatoria que he sacado de la función anterior
+  r1.setTexto(respuestas[pregunta][posiciones[0]-1]);
+  r1.dibujar();
+  r2.setTexto(respuestas[pregunta][posiciones[1]-1]);
+  r2.dibujar();
+  r3.setTexto(respuestas[pregunta][posiciones[2]-1]);
+  r3.dibujar();
+  
+  //miro que botón se ha pulsado
+  if(r1.pulsar == true){
+    //compruebo que su texto sea igual que el array de las respuestas, en la posición 0 siempre tengo la correcta
+    if(r1.texto.equals(respuestas[pregunta][0])){
+      solucion = "Correcte";
+    } else{
+        solucion = "Incorrecte";
+    }
+    r2.pulsar = false;
+    r3.pulsar = false;
+  }
+  if(r2.pulsar == true){
+    if(r2.texto.equals(respuestas[pregunta][0])){
+       solucion = "Correcte";
+    } else{
+        solucion = "Incorrecto";
+    }
+    r1.pulsar = false;
+    r3.pulsar = false;
+  }
+  if(r3.pulsar == true){
+    if(r3.texto.equals(respuestas[pregunta][0])){
+       solucion = "Correcte";
+    } else{
+        solucion = "Incorrecte";
+    }
+    r1.pulsar = false;
+    r2.pulsar = false;
+  }
+  println(solucion);
 }
