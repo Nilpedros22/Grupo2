@@ -97,6 +97,8 @@ void Carrera() {
   fill(255);
   textSize(20);
   text(preguntas[pregunta], 280, 420);
+  text("Vueltas Rojo: " + vueltasRojo, 568, 260);
+  text("Vueltas Azul: " + vueltasAzul, 570, 285);
 
   if (controladorRespuestas == true) {
     posiciones = numerosAleatoriosSinRepetir();
@@ -111,10 +113,10 @@ void Carrera() {
 
   if (r1.pulsar == true) {
     if (r1.texto.equals(respuestas[pregunta][0])) {
-      solucion = "Correcto";
+      solucion = "Correcto, aumentando la velocidad";
       vel = vel + 0.25;
     } else {
-      solucion = "Incorrecto";
+      solucion = "Incorrecto, disminuyendo la velocidad";
       vel = vel - 0.25;
     }
     controladorPreguntas = true;
@@ -126,10 +128,10 @@ void Carrera() {
 
   if (r2.pulsar == true) {
     if (r2.texto.equals(respuestas[pregunta][0])) {
-      solucion = "Correcto";
+      solucion = "Correcto, aumentando la velocidad";
       vel = vel + 0.25;
     } else {
-      solucion = "Incorrecto";
+      solucion = "Incorrecto, disminuyendo la velocidad";
       vel = vel - 0.25;
     }
     controladorPreguntas = true;
@@ -141,10 +143,10 @@ void Carrera() {
 
   if (r3.pulsar == true) {
     if (r3.texto.equals(respuestas[pregunta][0])) {
-      solucion = "Correcto";
+      solucion = "Correcto, aumentando la velocidad";
       vel = vel + 0.25;
     } else {
-      solucion = "Incorrecto";
+      solucion = "Incorrecto, disminuyendo la velocidad";
       vel = vel - 0.25;
     }
     controladorPreguntas = true;
@@ -155,8 +157,23 @@ void Carrera() {
   }
   println(solucion);
 
+  if (posAzulX > 319 && posAzulY > 700 && posAzulY < 940 && posAzulX < 321) {
+    vueltasAzul = vueltasAzul + 1;
+  }
+
+  if (posRojoX > 320 && posRojoY > 700 && posRojoY < 940 && posRojoX < 321) {
+    vueltasRojo = vueltasRojo + 1;
+  }
+
+  if (vueltasAzul == 2 && vueltasRojo < 2) {
+    Ganador();
+  }
+
+  if (vueltasRojo == 2 && vueltasAzul < 2) {
+    Perdedor();
+  }
+
   cronometre.dibuixaComptaEnrere();
   if (cronometre.fiEnrera()) {
-    text("Ok", 50, 100);
   }
 }

@@ -37,8 +37,8 @@ class Temps {
   }
 
   void dibuixaComptaEnrere() {
-    fill(0);
-    text(minutsEnrera()+":"+segonsEnrera(), 10, 100);
+    fill(255);
+    text(minutsEnrera()+":"+segonsEnrera(), 240, 260);
   }
   void reinicia() {
     enrera = millis();

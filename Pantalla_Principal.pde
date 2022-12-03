@@ -1,4 +1,4 @@
-PImage menu, carrera, instrucciones, azul, rojo, azul2, Amov1, Amov2, Amov3, Amov4, AverticalB, AverticalA, RverticalA, RverticalB, rojo2, Rmov1, Rmov2, Rmov3, Rmov4;
+PImage menu, carrera, instrucciones, azul, rojo, azul2, Amov1, Amov2, Amov3, Amov4, AverticalB, AverticalA, RverticalA, RverticalB, rojo2, Rmov1, Rmov2, Rmov3, Rmov4, ganador, perdedor;
 Boton b1, b2, b3, b4, ins, p1, r1, r2, r3;
 int pantalla = 1;
 float vel = 1;
@@ -12,6 +12,8 @@ String solucion;
 boolean controladorRespuestas = true;
 boolean controladorPreguntas = true;
 Temps cronometre;
+int vueltasAzul = 0;
+int vueltasRojo = 0;
 
 void setup() {
   size(1374, 765);
@@ -35,6 +37,8 @@ void setup() {
   RverticalB = loadImage("RverticalB.png");
   RverticalA = loadImage("RverticalA.png");
   rojo2 = loadImage("rojo2.png");
+  ganador = loadImage("ganador.png");
+  perdedor = loadImage("perdedor.png");
   b1 = new Boton(455, 200, color(255, 0, 255), 455, 80, 0, 1, "");
   b2 = new Boton(455, 350, color(255, 0, 255), 455, 80, 0, 2, "");
   b3 = new Boton(455, 500, color(255, 0, 255), 455, 80, 0, 3, "");
@@ -52,7 +56,7 @@ void setup() {
 }
 
 void draw() {
-  //println(mouseX + ":" + mouseY);
+  println(mouseX + ":" + mouseY);
   switch(pantalla) {
   case 0:
     Menu();
