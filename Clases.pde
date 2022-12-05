@@ -3,11 +3,11 @@ class Temps {
   int principi;
   Temps() {
     principi = millis();
-    enrera = 10000 + principi;
+    enrera = 3000 + principi;
   }
 
   void reiniciaEnrera(int segons) {
-    enrera = millis() + segons * 1000;
+    enrera = millis() + segons * 500;
   }
   int segons() {
     return (int)((millis() - principi)/ 1000)%60;
