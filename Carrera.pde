@@ -173,6 +173,9 @@ void Carrera() {
 
     cronometre.dibuixaComptaEnrere();
     if (cronometre.fiEnrera()) {
-    }
+      cronometre.reiniciaEnrera(30);
+    } else {
+      cronometre == 0;
+      vel = vel - 0.25;
   }
 }

@@ -3,14 +3,18 @@ class Temps {
   int principi;
   Temps() {
     principi = millis();
+<<<<<<< Updated upstream
     enrera = 3000 + principi;
+=======
+    enrera = 30000 + principi;
+>>>>>>> Stashed changes
   }
 
   void reiniciaEnrera(int segons) {
     enrera = millis() + segons * 500;
   }
   int segons() {
-    return (int)((millis() - principi)/ 1000)%60;
+    return (int)((millis() - principi)/ 10000)%60;
   }
   int minuts() {
     return (int)((millis() - principi)/ 60000);
